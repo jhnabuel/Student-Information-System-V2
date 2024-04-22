@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="styles">
+    <file>icon/dropdown.svg</file>
+  </qresource>
+</RCC>

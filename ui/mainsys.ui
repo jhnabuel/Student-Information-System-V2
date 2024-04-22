@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1338</width>
+    <height>854</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*Style for Student Info Input*/
+#inputFrame1 QLineEdit{
+	padding: 4px, 5px;
+	border: 1px solid #838383;
+ 	background: #fbfbfb;
+}
+#inputFrame1 QLineEdit:focus, #inputFram1 QComboBox:focus{
+	  border: 1.5px solid #000;
+}
+
+#inputFrame1, QComboBox{
+	padding: 4px, 5px;
+	border: 1px solid #838383;
+	border-radius: 2px;
+}
+
+#inputFrame1{
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+
+
+
+
+
+/*Style for Course Info Input*/
+#inputFrame2{
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+#inputFrame2 QLineEdit{
+	padding: 4px, 5px;
+	border: 1px solid #838383;
+ 	background: #fbfbfb;
+}
+#inputFrame2 QLineEdit:focus, #inputFrame2 QComboBox:focus{
+	  border: 1.5px solid #000;
+}
+
+
+
+
+
+
+/*Style for search frames*/
+#searchFrame QLineEdit, 
+#searchFrame QComboBox{
+	padding: 4px, 5px;
+	border: 1px solid #838383;
+	border-radius: 2px;
+}
+
+#searchFrame2 QLineEdit {
+	padding: 4px, 5px;
+	border: 1px solid #838383;
+	border-radius: 2px;
+}
+
+#searchFrame QLineEdit:focus, #searchFrame QComboBox:focus{
+	border: 1.5px solid #000;
+}
+
+#searchFrame2 QLineEdit:focus{
+	border: 1.5px solid #000;
+}
+
+
+
+
+
+
+
+/*Style for ComboBoxes*/
+QComboBox::drop-down{
+	background:transparent;
+	border: none;
+	margin-right: 5px;
+}
+
+QComboBox::down-arrow{
+	image:url(:/styles/icon/dropdown.svg);
+}
+
+/*Style for tables*/
+QTableWidget{
+	border-radius: 3px;
+	border: 1px solid #f0f0f0;
+}
+
+QHeaderView::section{
+	border: none;
+	border-bottom: 1px solid #d0c6ff;
+	text-align: left;
+	padding: 3px 5px;
+}
+
+QTableWidget::Item{
+	border-bottom: 1px solid #d0c6ff;
+	color: #000;
+	padding-left: 3px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="studentDisplay">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>901</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Semibold</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="showGrid">
+     <bool>false</bool>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>180</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>ID Number</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Name</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Year Level</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Gender</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Course Code</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QFrame" name="searchFrame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>901</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="searchStudentLabel">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>10</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Search Student:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="searchFilterLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Search by:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="searchStudent">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>10</y>
+       <width>521</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#searchStudent:focus{
+	border: 1.5px solid #000;
+}
+
+</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="searchFilter">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>10</y>
+       <width>131</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>421</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Semibold</family>
+      <pointsize>22</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Student Information System</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="courseDisplay">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>260</y>
+      <width>391</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="showGrid">
+     <bool>false</bool>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>150</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Course Code</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Course Name</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </column>
+   </widget>
+   <widget class="QFrame" name="inputFrame1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>891</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>10</y>
+       <width>341</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <item row="1" column="0">
+       <widget class="QLabel" name="nameLabel">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLineEdit" name="idInput2"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="yearLabel">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Year Level</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="idInput"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="IDLabel">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>ID Number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2">
+       <widget class="QLineEdit" name="nameInput">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="2">
+       <widget class="QComboBox" name="yearCombo">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>10</y>
+       <width>331</width>
+       <height>103</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="horizontalSpacing">
+       <number>10</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>10</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="courseLabel">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Course Code</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="courseCombo">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="genderLabel">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Gender</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="genderCombo">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>10</y>
+       <width>101</width>
+       <height>128</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="addStudent">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#addStudent{
+                    cursor: pointer;
+                    background-color: #007a5a;
+					height: 30px;
+                    border: 1px solid #007a5a;
+					border-radius:4px;
+                    color: #fff;
+                    font-size: 13px;
+                    line-height: 30px;
+                    text-align: center;
+}
+         #addStudent:hover {
+                        background-color: rgb(0, 170, 127);  
+                    } 
+                
+ 
+                </string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="editStudent">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#editStudent{
+                    cursor: pointer;
+                    background-color:rgb(15, 119, 255);
+					height: 30px;
+                    border: 1px solid rgb(15, 119, 255);
+					border-radius:4px;
+                    color: #ffffff;
+                    font-size: 13px;
+                    line-height: 30px;
+                    text-align: center;
+}
+#editStudent:hover {
+         background-color:rgb(0, 166, 255); 
+                    } 
+                </string>
+        </property>
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteStudent">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#deleteStudent{
+                    cursor: pointer;
+                    background-color: rgb(255, 61, 61);
+					height: 30px;
+                    border: 1px solid rgb(255, 32, 32);
+					border-radius:4px;
+                    color: #fff;
+                    font-size: 13px;
+                    line-height: 30px;
+                    text-align: center;
+}
+#deleteStudent:hover {
+                     background-color: rgb(255, 32, 32);  
+                    } 
+                
+ </string>
+        </property>
+        <property name="text">
+         <string>Delete</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="inputFrame2">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>60</y>
+      <width>401</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>10</y>
+       <width>101</width>
+       <height>128</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="addCourse">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#addCourse{
+                    cursor: pointer;
+                    background-color: #007a5a;
+					height: 30px;
+                    border: 1px solid #007a5a;
+					border-radius:4px;
+                    color: #fff;
+                    font-size: 13px;
+                    line-height: 30px;
+                    text-align: center;
+}
+         #addCourse:hover {
+                        background-color: rgb(0, 170, 127);  
+                    } 
+                
+ 
+                </string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="editCourse">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#editCourse{
+              cursor: pointer;
+                    background-color:rgb(15, 119, 255);
+					height: 30px;
+                    border: 1px solid rgb(15, 119, 255);
+					border-radius:4px;
+                    color: #ffffff;
+                    font-size: 13px;
+                    line-height: 30px;
+                    text-align: center;
+}
+#editCourse:hover {
+         background-color:rgb(0, 166, 255); 
+                    } 
+                
+                </string>
+        </property>
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteCourse">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#deleteCourse{
+                    cursor: pointer;
+                    background-color: rgb(255, 61, 61);
+					height: 30px;
+                    border: 1px solid rgb(255, 32, 32);
+					border-radius:4px;
+                    color: #fff;
+                    font-size: 13px;
+                    line-height: 30px;
+                    text-align: center;
+}
+#deleteCourse:hover {
+                     background-color: rgb(255, 32, 32);  
+                    } 
+                
+ </string>
+        </property>
+        <property name="text">
+         <string>Delete</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>271</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="verticalSpacing">
+       <number>10</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="coursecodeLabel">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Course Code</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="courseCodeInput"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLineEdit" name="courseNameInput">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="coursenameLabel">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Course Name</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="searchFrame2">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>220</y>
+      <width>391</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="searchCourseLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Search Course:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="searchCourse">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>10</y>
+       <width>261</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="clearStudent">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>20</y>
+      <width>99</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Semibold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#clearStudent{
+                    cursor: pointer;
+                    background-color: rgb(56, 56, 56);
+					height: 30px;
+                    border: 1px solid rgb(56, 56, 56);
+					border-radius:4px;
+                    color: #fff;
+                    font-size: 13px;
+                    line-height: 30px;
+                    text-align: center;
+}
+         #clearStudent:hover {
+                        background-color: rgb(68, 68, 68);  
+                    } 
+                
+ 
+                </string>
+    </property>
+    <property name="text">
+     <string>Clear</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clearCourse">
+    <property name="geometry">
+     <rect>
+      <x>1210</x>
+      <y>20</y>
+      <width>99</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Semibold</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#clearCourse{
+                    cursor: pointer;
+                    background-color: rgb(56, 56, 56);
+					height: 30px;
+                    border: 1px solid rgb(56, 56, 56);
+					border-radius:4px;
+                    color: #fff;
+                    font-size: 13px;
+                    line-height: 30px;
+                    text-align: center;
+}
+         #clearCourse:hover {
+                        background-color: rgb(68, 68, 68);  
+                    } 
+                </string>
+    </property>
+    <property name="text">
+     <string>Clear </string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../static/resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
